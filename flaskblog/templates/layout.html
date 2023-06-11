@@ -62,13 +62,13 @@
                         <p class="text-muted">Rotation Cities
                             <ul class="list-group list-group-item-action list-group-flush">
 
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">San Francisco</a>
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">Seoul</a>
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">Taipei</a>
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">Hyderabad</a>
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">Buenos Aires</a>
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">London</a>
-                                <a href="{{ url_for('posts.new_post') }}" class="list-group-item list-group-item-action list-group-item-light">Berlin</a>
+                                <a href="{{ url_for('cities.cities_posts', city='San Francisco') }}" class="list-group-item list-group-item-action list-group-item-light">San Francisco</a>
+                                <a href="{{ url_for('cities.cities_posts', city='Seoul') }}" class="list-group-item list-group-item-action list-group-item-light">Seoul</a>
+                                <a href="{{ url_for('cities.cities_posts', city='Taipei') }}" class="list-group-item list-group-item-action list-group-item-light">Taipei</a>
+                                <a href="{{ url_for('cities.cities_posts', city='Hyderabad') }}" class="list-group-item list-group-item-action list-group-item-light">Hyderabad</a>
+                                <a href="{{ url_for('cities.cities_posts', city='Buenos Aires') }}" class="list-group-item list-group-item-action list-group-item-light">Buenos Aires</a>
+                                <a href="{{ url_for('cities.cities_posts', city='London') }}" class="list-group-item list-group-item-action list-group-item-light">London</a>
+                                <a href="{{ url_for('cities.cities_posts', city='Berlin') }}" class="list-group-item list-group-item-action list-group-item-light">Berlin</a>
 
                             </ul>
                         </p>

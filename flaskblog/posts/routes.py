@@ -15,6 +15,7 @@ def new_post():
     if form.validate_on_submit():
         post = Post(
             title=form.title.data,
+            city=form.city.data,
             content=form.content.data,
             author=current_user,
         )
@@ -43,6 +44,7 @@ def update_post(post_id):
     form = PostForm()
     if form.validate_on_submit():
         post.title = form.title.data
+        post.city = form.city.data
         post.content = form.content.data
         db.session.commit()
         flash("Your post has been updated!", "success")
