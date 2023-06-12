@@ -16,6 +16,7 @@ class PostForm(FlaskForm):
             "London",
             "Berlin",
         ],
+        coerce=str,
     )
 
     content = TextAreaField("Content", validators=[DataRequired()])
