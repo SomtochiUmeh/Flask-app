@@ -13,14 +13,37 @@
         <p class="article-content">{{ post.content }}</p>
         {% if post.author == current_user %}
             <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.new_comment', post_id=post.id) }}">Add Comment</a>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update Post</a>
-                <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Post</button>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal" data-bs-target="#deletePostModal">Delete Post</button>
             </div>
+        {% else %}
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.new_comment', post_id=post.id) }}">Add Comment</a>
+          </div>
         {% endif %}
+        <div class="article-metadata mt-3">
+          <h6><strong>Comments</strong></h6>
+        </div>
+        {% for comment in comments %}
+          <div class="media">
+            <a href="{{ url_for('users.user_posts', username=post.author.username) }}"><img class="rounded-circle comment-img" src="{{ url_for('static', filename='profile_pics/' + comment.author.image_file) }}"></a>
+            <div class="media-body">
+              <small class="mt-1 mb-0">{{ comment.author.username }}</small>
+              <small class="ml-3 text-muted">{{ comment.date_posted.strftime('%Y-%m-%d') }} </small><br>
+              {{comment.content}}
+            </div>
+            {% if post.author == current_user %}
+              <div>
+                <a class="btn btn-danger btn-sm m-1" href="{{ url_for('posts.delete_comment', post_id=post.id, comment_id=comment.id) }}">Delete</a>
+              </div>
+            {% endif %}
+          </div> 
+        {% endfor %}
     </div>
 </article>
 <!-- Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deletePostModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
